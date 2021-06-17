@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row bg-primary text-white padding-md">
+		<div class="col-3"><strong>Author</strong></div>
+    <div class="col-5"><strong>Title</strong></div>
+    <div class="col-2"><strong>Price</strong></div>
+    <div class="col-2"><strong>Number of pages</strong></div>
+	</div>
+	<div 
+    class="row padding-sm" 
+    [ngClass]="{'bg-light': index % 2 === 0,'bg-white': index % 2 === 1}"
+    *ngFor="let book of books; let index=index">
+		<div class="col-3">
+			{{ book.author.first }} {{ book.author.last }}
+		</div>
+		<div class="col-5">
+			{{ toTitleCase(book.title) }}
+		</div>
+		<div class="col-2 text-right">
+			{{ book.price }}
+		</div>
+		<div class="col-2 text-right">
+			{{book.numberOfPages}}
+		</div>
+	</div>
+</div>
